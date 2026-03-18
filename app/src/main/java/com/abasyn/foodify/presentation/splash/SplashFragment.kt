@@ -40,13 +40,10 @@ class SplashFragment : Fragment() {
     private fun observeEvents() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-
                 viewModel.event.collectLatest {
-
                     val action =
                         SplashFragmentDirections
                             .actionSplashFragmentToLoginFragment()
-
                     findNavController().navigate(
                         action,
                         NavOptions.Builder()
